@@ -2,6 +2,8 @@
 Markdown编辑器的使用与开发入门
 ----------
 
+[TOC]
+
 ## 1 是什么
 
 ### 1.1 Markdown是一种轻量级标记语言
@@ -180,17 +182,17 @@ $(document).ready(() => {
 		});
 	});
 
-3. **Github 代码块** 使用三个或以上重音符号（\``` \```）放在代码块的前一行和后一行。在前一行重音符的后面加上语言名称（注意要小写），可以按照该语言的语法对代码块内容高亮。如果要在代码块中显示三个重音符，用四个重音符来表示代码块起止即可。支持的编程语言参见[the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)，如果要使用没有语法高亮的代码块，用`plain`标记。
+3. **Github 代码块** 使用三个或以上重音符号（\`\`\` \`\`\`）放在代码块的前一行和后一行。在前一行重音符的后面加上语言名称（注意要小写），可以按照该语言的语法对代码块内容高亮。如果要在代码块中显示三个重音符，用四个重音符来表示代码块起止即可。支持的编程语言参见[the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml)，如果要使用没有语法高亮的代码块，用`plain`标记。
 
 
-\```javascript  
+\`\`\`javascript  
 $(document).ready(() => {  
-	$('pre code').each((i, block) => {
-	    hljs.highlightBlock(block);
-	    **highlight**
-	});
-});
-\```
+	$('pre code').each((i, block) => {  
+	    hljs.highlightBlock(block);  
+	    **highlight**  
+	});  
+});  
+\`\`\`
 
 
 效果：
@@ -272,17 +274,19 @@ puts markdown.to_html
 [博客园](http://www.cnblogs.com/ "链接title")。
 
 2. **参考式**：
+
  \[博客园1\]\[1\]    
  \[博客园2\]\[2\]    
- \[1\]:http:://www.cnblogs.com
- \[2\]:http:://www.cnblogs.com
+ \[1\]http://www.cnblogs.com
+ \[2\]http://www.cnblogs.com
 
 效果：
+
  [博客园1][1]    
  [博客园2][2]
 
-[1]: http:://www.cnblogs.com/ "链接title"
-[2]: http:://www.cnblogs.com/ "链接title"
+[1]: http://www.cnblogs.com/ "链接title"
+[2]: http://www.cnblogs.com/ "链接title"
 
 **注意**：上述的`[1]:https:://github.com/younghz/Markdown "Markdown"`不出现在区块中。
 

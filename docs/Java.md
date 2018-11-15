@@ -1,7 +1,5 @@
 # Java开发入门
 
-[TOC]
-
 ## 1 SSM框架
 
 ### 1.1 Spring Framework
@@ -29,6 +27,8 @@ POP面向过程程序设计
 OOP面向对象的程序设计
 
 ![enter image description here](https://img-blog.csdn.net/20170215092953013?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvamF2YXplamlhbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+微服务
 
 > [关于 Spring AOP (AspectJ) 你该知晓的一切](https://blog.csdn.net/javazejian/article/details/56267036)
 
@@ -62,20 +62,45 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 
 - IDEA
 
-目前IDEA只支持Java8的JDK
+1. 目前IDEA只支持Java8的JDK
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qcfxe0pj20jd0h2dgk.jpg)
 
-Maven
+2. **Apache Maven**，是一个软件（特别是Java软件）项目管理及自动构建工具，由Apache软件基金会所提供。基于项目对象模型（Project Object Model，POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤（生命周期）。
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qd147zxj20jq0h7gm8.jpg)
 
-
+3. 选择需要的依赖
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qd8k36jj20n70h7dgl.jpg)
 
+4. pom.xml
+``` xml
+<project>
+  <!-- model version is always 4.0.0 for Maven 2.x POMs -->
+  <modelVersion>4.0.0</modelVersion>
+  <!-- project coordinates, i.e. a group of values which
+       uniquely identify this project -->
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <version>1.0</version>
+  <!-- library dependencies -->
+  <dependencies>
+    <dependency>
+      <!-- coordinates of the required library -->
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <!-- this dependency is only used for running and compiling tests -->
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+```
 
+##### 构建启动的两种方式
 
-#### Maven
-
-##### Apech
+1. 在IDE（或者命令行工具中的java）启动main函数，IDE中一般都自带Maven，能够帮助我们下载安装Maven依赖。
+![](http://ww1.sinaimg.cn/large/aa003451gy1fx8tn3nrrij20gg0a8mxu.jpg)
+2. 在命令行工具中运行mvn spring-boot:run，但是此种方法要求你在本地环境中必须安装Maven
+![](http://ww1.sinaimg.cn/large/aa003451gy1fx8toc327hj20cy0cr757.jpg)
 
 ### 1.3 Mybatis
 

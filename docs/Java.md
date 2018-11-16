@@ -138,7 +138,7 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 不管使用哪种方法都可以启动项目，然后访问http://localhost:8080就可以打开网站看到控制器里面的内容了
 
 ##### 应用入口
-```java
+```Jva
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;

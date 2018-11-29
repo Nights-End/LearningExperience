@@ -267,7 +267,7 @@ public class DemoApplication {
 不管使用哪种方法都可以启动项目，然后访问http://localhost:8080就可以打开网站看到控制器里面的内容了
 
 ##### 应用入口
-```java
+```Java
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -339,7 +339,7 @@ Hibernate 是完备的 ORM 框架，是符合 JPA 规范的，但 MyBatis 不是
 添加依赖之后，IDEA会自动导入相应的包
 
 2. 建立与数据库表对应的类（javabean）
-```java
+```Java
 package com.example.dataObject;
 
 public class User {
@@ -367,7 +367,7 @@ public class User {
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fxoybvx39xj206v09bjre.jpg)
 
 - Mapper
-```java
+```Java
 package com.example.dataMapper;
 
 import com.example.dataObject.User;
@@ -389,7 +389,7 @@ public interface UserMapper {
 }
 ```
 - Service
-```java
+```Java
 package com.example.service;
 
 import com.example.dataMapper.UserMapper;
@@ -415,7 +415,7 @@ public class UserService {
 
 ```
 - Controller
-```java
+```Java
 package com.example;
 
 import com.example.dataObject.User;
@@ -472,7 +472,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
 ### 2.1 @RequestMapping
 在Spring MVC框架中，使用@RequestMapping标注可以将URL与处理方法绑定起来，看一下上面的控制器例子
-```java
+```Java
 package com.example;
 
 import com.example.dataObject.User;

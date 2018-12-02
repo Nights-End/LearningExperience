@@ -10,7 +10,7 @@
 
 Spring是一个开源的Java／Java EE全功能栈（full-stack）的应用程序框架，以Apache License 2.0开源许可协议的形式发布，也有.NET平台上的移植版本。该框架基于 Expert One-on-One Java EE Design and Development（ISBN 0-7645-4385-7）一书中的代码，最初由Rod Johnson和Juergen Hoeller等开发。
 
-Spring Framework提供了一个简易的开发方式，这种开发方式，将避免那些可能致使底层代码变得繁杂混乱的大量的属性文件和帮助类。 简单来说，Spring是一个轻量级的**控制反转（IoC）**和**面向切面（AOP）**的容器框架。
+Spring Framework提供了一个简易的开发方式，这种开发方式，将避免那些可能致使底层代码变得繁杂混乱的大量的属性文件和帮助类。 简单来说，Spring是一个轻量级的 **控制反转（IoC）** 和 **面向切面（AOP）** 的容器框架。
 如果学习JAVA Spring，这两个东西应该是绕不开的，但是暂时理解不深刻，后面准备深入到代码实现层面，与.NET进行一些比较。
 
 #### 控制反转 IoC(Inversion of Control)
@@ -61,20 +61,25 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 ##### 使用Spring Boot的方法之一：Spring Initializr
 
 - 通过Web构建 http://start.spring.io/
+
 ![enter image description here](http://upload-images.jianshu.io/upload_images/1637925-8fd3e8f13ba45de6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - IDEA
 
 1. 目前IDEA只支持Java8的JDK
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qcfxe0pj20jd0h2dgk.jpg)
 
 2.**Apache Maven**，是一个软件（特别是Java软件）项目管理及自动构建工具，由Apache软件基金会所提供。基于项目对象模型（Project Object Model，POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤（生命周期）。
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qd147zxj20jq0h7gm8.jpg)
 
 3. 选择需要的依赖
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qd8k36jj20n70h7dgl.jpg)
 
 4. pom.xml
+
 ``` xml
 <project>
     <modelVersion>4.0.0</modelVersion>
@@ -127,15 +132,18 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 ##### 构建启动的三种方式
 
 1. 在IDE（或者命令行工具中的java）启动main函数，IDE中一般都自带Maven，能够帮助我们下载安装Maven依赖。
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8tn3nrrij20gg0a8mxu.jpg)
 2. 运行mvn spring-boot:run命令，但是此种方法要求你在本地环境中必须安装Maven
 使用命令行有两种方式，一种是直接找到Maven项目视图中的spring boot启动命令直接运行
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8toc327hj20cy0cr757.jpg)
 
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx9qcflij0j20e20ch755.jpg)
 另一种是直接输入命令
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx9qeqeclbj20l306vgly.jpg)
 3. 使用mvn package命令进行打包，生成一个可以直接运行的 JAR 文件，路径是项目文件中的target目录，使用“java -jar”命令就可以直接运行。
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx9qs8geknj20eb097t8v.jpg)
 
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx9qky9vtkj20r70e4jry.jpg)
@@ -143,6 +151,7 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 不管使用哪种方法都可以启动项目，然后访问http://localhost:8080就可以打开网站看到控制器里面的内容了
 
 ##### 应用入口
+
 ```Java
 package com.example.demo;
 
@@ -197,8 +206,10 @@ Hibernate 是完备的 ORM 框架，是符合 JPA 规范的，但 MyBatis 不是
 
 #### 1.3.2 连接数据库
 
-1. 添加依赖
+1. 添加依赖   
+
 在pom.xml中添加MyBatis与相应数据库的依赖
+
 ```xml
 <!-- MyBatis -->
 <dependency>
@@ -219,6 +230,7 @@ Hibernate 是完备的 ORM 框架，是符合 JPA 规范的，但 MyBatis 不是
 添加依赖之后，IDEA会自动导入相应的包
 
 2. 建立与数据库表对应的类（javabean）
+
 ```Java
 package com.example.dataObject;
 
@@ -244,9 +256,11 @@ public class User {
 3. 三层结构及连接池
 
 三层的结构如图，我的理解是Mapper→Service→Controller
+
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fxoybvx39xj206v09bjre.jpg)
 
 - Mapper
+
 ```Java
 package com.example.dataMapper;
 
@@ -269,6 +283,7 @@ public interface UserMapper {
 }
 ```
 - Service
+
 ```Java
 package com.example.service;
 
@@ -295,6 +310,7 @@ public class UserService {
 
 ```
 - Controller
+
 ```Java
 package com.example;
 
@@ -336,6 +352,7 @@ public class DemoController {
 连接串有两种写法，但是其实都是在application.properties这个文件里，但是可以把这个文件的后缀改为**.yml**使用，这样就是application.yml
 
 - application.properties
+
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
 spring.datasource.username=root
@@ -343,6 +360,7 @@ spring.datasource.password=limingxu
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
 - application.yml
+
 ![](https://img2018.cnblogs.com/blog/1368608/201811/1368608-20181125150204883-276581902.png)
 
 写法的作用是一样的，我没用使用yml格式的，所以找了用了别人的图，要注意的是url后面的那一串，这就是前面说的数据库连接问题，正常使用5.x版本的MySQL可以直接使用这种普通的连接串，但是我一开始不知道，用了最新的8.x版本，直接连接数据库会报错，要像application.properties里面的写法在后面通过get传值的方式加上一串说明，具体作用还没有深入研究
@@ -352,6 +370,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 
 ### 2.1 @RequestMapping
 在Spring MVC框架中，使用@RequestMapping标注可以将URL与处理方法绑定起来，看一下上面的控制器例子
+
 ```Java
 package com.example;
 
@@ -404,7 +423,7 @@ public class DemoController {
 
 这四个方法可以对应到CRUD操作（Create、Read、Update和Delete），每一个Web请求都是属于其中一种，在Spring MVC中如果不特殊指定的话，默认是GET请求。
 
-实际上**@RequestMapping("/")**是**@RequestMapping("/", method = RequestMethod.GET)**的简写，即可以通过method属性，设置请求的HTTP方法。
+实际上 **@RequestMapping("/")** 是 **@RequestMapping("/", method = RequestMethod.GET)** 的简写，即可以通过method属性，设置请求的HTTP方法。
 
 比如PUT /hello请求，对应@RequestMapping("/hello", method = RequestMethod.PUT)
 

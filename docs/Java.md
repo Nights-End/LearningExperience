@@ -152,7 +152,7 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 
 ##### 应用入口
 
-```Java
+```java
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -231,7 +231,7 @@ Hibernate 是完备的 ORM 框架，是符合 JPA 规范的，但 MyBatis 不是
 
 2. 建立与数据库表对应的类（javabean）
 
-```Java
+```java
 package com.example.dataObject;
 
 public class User {
@@ -261,7 +261,7 @@ public class User {
 
 - Mapper
 
-```Java
+```java
 package com.example.dataMapper;
 
 import com.example.dataObject.User;
@@ -284,7 +284,7 @@ public interface UserMapper {
 ```
 - Service
 
-```Java
+```java
 package com.example.service;
 
 import com.example.dataMapper.UserMapper;
@@ -311,7 +311,7 @@ public class UserService {
 ```
 - Controller
 
-```Java
+```java
 package com.example;
 
 import com.example.dataObject.User;
@@ -371,7 +371,7 @@ spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ### 2.1 @RequestMapping
 在Spring MVC框架中，使用@RequestMapping标注可以将URL与处理方法绑定起来，看一下上面的控制器例子
 
-```Java
+```java
 package com.example;
 
 import com.example.dataObject.User;

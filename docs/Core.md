@@ -42,7 +42,7 @@ Core的IIS站点应用程序池的.NET CLR版本要选择 **无托管代码**
 
 直接执行以下命令：
 
-```Linux
+```shell
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
 ```
 
@@ -52,7 +52,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-pr
 
 输入以下命令：
 
-```Linux
+```shell
 sudo yum update
 sudo yum install dotnet-sdk-2.2
 ```
@@ -63,7 +63,7 @@ sudo yum install dotnet-sdk-2.2
 
 通过输入命令就可以创建一个官方的示例.NET Core程序
 
-```Linux
+```shell
 dotnet new console -o myApp
 cd myApp
 ```
@@ -93,7 +93,7 @@ namespace myApp
 
 ### 2.4 运行应用
 
-```linux
+```shell
 dotnet run
 ```
 
@@ -107,7 +107,7 @@ dotnet run
 
 创建网站
 
-```
+```shell
 dotnet new mvc
 ```
 
@@ -115,7 +115,7 @@ dotnet new mvc
 
 然后发布这个网站程序
 
-```
+```shell
 dotnet restore
 dotnet publish -c release
 ```
@@ -124,7 +124,7 @@ dotnet publish -c release
 
 默认的发布目录是在/bin/release/netcoreapp2.x/publish/里，可以新建一个目录拷贝进去
 
-```
+```shell
 scp -r /root/mvc/bin/release/netcoreapp2.2/publish/* /root/www/firstapp
 ```
 
@@ -134,14 +134,14 @@ scp -r /root/mvc/bin/release/netcoreapp2.2/publish/* /root/www/firstapp
 
 使用yum命令远程安装
 
-```
+```shell
 sudo yum install epel-release
 yum install nginx
 ```
 
 启动
 
-```
+```shell
 systemctl start nginx #启用Nginx
 systemctl enable nginx #设置开机启动
 ```
@@ -173,7 +173,7 @@ public class Program
 
 然后去修改Nginx的配置，默认的路径应该是/etc/nginx/nginx.conf，在server节点下的location节点加一句 proxy_pass http://localhost:8080; 就可以
 
-```
+```shell
 server {
     listen       80 default_server;
     listen       [::]:80 default_server;
@@ -199,7 +199,7 @@ server {
 
 修改完成后测试并重启Nginx服务
 
-```
+```shell
 sudo nginx -t         #测试配置
 sudo nginx -s reload  #重新加载配置
 ```

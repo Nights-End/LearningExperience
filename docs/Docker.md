@@ -149,23 +149,23 @@ docker run -it --rm -p 8000:80 --name aspnetcore_sample microsoft/dotnet-samples
 
 在新建Core项目时,勾选“启用Docker支持”选项，新建的项目会自动添加dockerfile文件，文件的具体内容在下文进行分析
 
-**图7**
+![](http://ww1.sinaimg.cn/large/aa003451gy1fz5dl0lz51j20m80fk0to.jpg)
 
 2. ### 手动添加
 
 已经在使用的项目可以通过“右键-添加-Docker支持”，这样也可以新建Dockerfile文件
 
-**图8**
+![](http://ww1.sinaimg.cn/large/aa003451gy1fz5dl0m9hcj20j10i9t9w.jpg)
 
 3. ### 容器业务流程协调控制程序支持
 
 这种方法相对于前两种比较特殊，它不再是单单增加一个Dockerfile文件，而是如名称一般是一整条生产链，用于配合持续集成工具的开发-调试-生成-发布一条龙服务。添加的方式与第二种相同，右键项目添加就能看到这个拗口的名字
 
-**9**
+![](http://ww1.sinaimg.cn/large/aa003451gy1fz5dl0mi81j20ig08t0td.jpg)
 
 使用这种方式除了生成Dockerfile文件还会在解决方案中添加一个名为Docker Compose的业务流程协调程序，在新建时可以选择，但是默认自带的只有这个。里面包含两个文件，一个是 `.dockerignore` 这个和git类似，里面记录的文件不会被打包成镜像发布，另一个是 `docker-compose.yml` ，用于配置这个业务流程的信息，如镜像名称和Dockerfile文件的路径等
 
-**10**
+![](http://ww1.sinaimg.cn/large/aa003451gy1fz5dl0p92qj207f02bmx0.jpg)
 
 ## Dockefile语法
 

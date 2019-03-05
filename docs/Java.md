@@ -15,8 +15,8 @@ Spring Framework提供了一个简易的开发方式，这种开发方式，将�
 
 #### 控制反转 IoC(Inversion of Control)
 
-在IoC出现以前，组件之间的协调关系是由程序内部代码来控制的，或者说，以前我们使用New关键字来实现两组间之间的依赖关系的。   
-这种方式就造成了组件之间的互相耦合。IoC(控制反转)就是来解决这个问题的，它将实现组件间的关系从程序内部提到外部容器来管理。   
+在IoC出现以前，组件之间的协调关系是由程序内部代码来控制的，或者说，以前我们使用New关键字来实现两组间之间的依赖关系的。
+这种方式就造成了组件之间的互相耦合。IoC(控制反转)就是来解决这个问题的，它将实现组件间的关系从程序内部提到外部容器来管理。
 也就是说，**由容器在运行期将组件间的某种依赖关系动态的注入组件中。**
 
 **依赖注入(Dependency Injection)**：这就是DI，字面上理解，依赖注入就是将服务注入到使用它的地方。对象只提供普通的方法让容器去决定依赖关系，容器全权负责组件的装配，它会把符合依赖关系的对象通过属性（JavaBean中的setter）或者是构造子传递给需要的对象。
@@ -53,7 +53,7 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 
 ##### spring boot 特点
 
-- 自动配置：针对很多Spring应用程序常见的应用功能，Spring Boot能自动提供相关配置  
+- 自动配置：针对很多Spring应用程序常见的应用功能，Spring Boot能自动提供相关配置
 - 起步依赖：告诉Spring Boot需要什么功能，它就能引入需要的库。
 - 命令行界面：这是Spring Boot的可选特性，借此你只需写代码就能完成完整的应用程序，无需传统项目构建。
 - Actuator：让你能够深入运行中的Spring Boot应用程序，一套究竟。
@@ -66,19 +66,25 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 
 - IDEA
 
-1. 目前IDEA只支持Java8的JDK
+ 1. 目前IDEA只支持Java8的JDK
 
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qcfxe0pj20jd0h2dgk.jpg)
 
-2.**Apache Maven**，是一个软件（特别是Java软件）项目管理及自动构建工具，由Apache软件基金会所提供。基于项目对象模型（Project Object Model，POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤（生命周期）。
+ 2. **Apache Maven**，是一个软件（特别是Java软件）项目管理及自动构建工具，由Apache软件基金会所提供。基于项目对象模型（Project Object Model，POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤（生命周期）。
+
+ 项目管理的部分类似.NET的NuGet，同时还具有MSBuild的生成功能，负责项目的生成与打包（jar）等
+
+ groupid和artifactId被统称为“坐标”，是为了保证项目唯一性而提出的，如果你要把你项目弄到maven本地仓库去，你想要找到你的项目就必须根据这两个id去查找。
+
+ groupId第一段为域，如：org、com、cn等，第二段为公司名称或作者名称等，artifactId一般与项目有关
 
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qd147zxj20jq0h7gm8.jpg)
 
-3. 选择需要的依赖
+ 3. 选择需要的依赖
 
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx8qd8k36jj20n70h7dgl.jpg)
 
-4. pom.xml
+ 4. pom.xml
 
 ``` xml
 <project>
@@ -148,7 +154,7 @@ Spring Boot就是Spring,它做了那些没有它你也会去做的Spring Bean配
 
 ![](http://ww1.sinaimg.cn/large/aa003451gy1fx9qky9vtkj20r70e4jry.jpg)
 
-不管使用哪种方法都可以启动项目，然后访问http://localhost:8080就可以打开网站看到控制器里面的内容了
+不管使用哪种方法都可以启动项目，然后访问http://localhost:8080 就可以打开网站看到控制器里面的内容了
 
 ##### 应用入口
 
@@ -206,7 +212,7 @@ Hibernate 是完备的 ORM 框架，是符合 JPA 规范的，但 MyBatis 不是
 
 #### 1.3.2 连接数据库
 
-1. 添加依赖   
+1. 添加依赖
 
 在pom.xml中添加MyBatis与相应数据库的依赖
 
@@ -502,7 +508,7 @@ target里的所有内容都是maven构建的时候生成的
 
 jar 包就是 java archive file java 的一种文档格式。jar文件非常类似zip
 
-WAR是Sun提出的一种Web应用程序格式，与JAR类似，也是许多文件的一个压缩包。这个包中的文件按一定目录结构来组织：   
+WAR是Sun提出的一种Web应用程序格式，与JAR类似，也是许多文件的一个压缩包。这个包中的文件按一定目录结构来组织：
 通常其根目录下包含有Html和Jsp文件或者包含这两种文件的目录，另外还会有一个WEB-INF目录，这个目录很重要。通常在WEB-INF目录下有一个web.xml文件和一个classes目录，web.xml是这个应用的配置文件，而classes目录下则包含编译好的Servlet类和Jsp或Servlet所依赖的其它类（如JavaBean）。
 
 通常这些所依赖的类也可以打包成JAR放到WEB-INF下的lib目录下，当然也可以放到系统的CLASSPATH中，但那样移植和管理起来不方便
@@ -522,7 +528,7 @@ target里的所有内容都是maven构建的时候生成的
 3. DAO(Data Access Object)：数据访问对象，用于访问数据库，里面包含对数据库的各种操作，配合VO进行CRUD
 4. DTO(Data Transfer Object)：数据传输对象，是一组需要跨进程或网络边界传输的聚合数据的简单容器。它不应该包含业务逻辑，并将其行为限制为诸如内部一致性检查和基本验证之类的活动。我一开始以为是业务实体，但是看说明不是一个东西，那个是BO。
 
-DTO的用法：   
+DTO的用法：
 比如我们一张表有100个字段，那么对应的PO就有100个属性。但是我们界面上只要显示10个字段，客户端用WEB service来获取数据，没有必要把整个PO对象传递到客户端，这时我们就可以用只有这10个属性的DTO来传递结果到客户端，这样也不会暴露服务端表结构.到达客户端以后，如果用这个对象来对应界面显示，那此时它的身份就转为VO。DTO还有减少请求的次数、简化传输对象、避免代码重复等作用。
 5. ORM(O/R Mapping,Object Relational Mapping)：对象关系映射
 
